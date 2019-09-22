@@ -20,7 +20,7 @@ fn sum(slice: &[i32]) -> i32 {
 // Make unique. Create a new vector which contains each item in the vector
 // only once! Much like a set would.
 // Please implement this using a for loop.
-fn unique(vs: &Vec<i32>) -> Vec<i32> {
+fn unique(vs: &[i32]) -> Vec<i32> {
     // clippy warns for the signature above:
     // warning: writing `&Vec<_>` instead of `&[_]` involves one more reference
     // and cannot be used with non-Vec-based slices
@@ -41,7 +41,7 @@ fn unique(vs: &Vec<i32>) -> Vec<i32> {
 
 // Problem 3.
 // return a new vector containing only elements that satisfy `pred`.
-fn filter(vs: &Vec<i32>, pred: &dyn Fn(i32) -> bool) -> Vec<i32> {
+fn filter(vs: &[i32], pred: &dyn Fn(i32) -> bool) -> Vec<i32> {
     let mut res = vec![];
     for i in vs {
         if pred(*i) {
@@ -73,16 +73,6 @@ fn fibonacci(n1: i32, n2: i32, how_many: usize) -> Vec<i32> {
 // You may use any standard library function you wish.
 fn str_concat(s1: &str, s2: &str) -> String {
     vec![s1, s2].join("")
-}
-
-// Problem 6
-// Create a function which concats 2 string and returns a String.
-// You may use any standard library function you wish.
-fn string_concat(s1: &String, s2: &String) -> String {
-    // clippy suggests to change the types for s1, s2 to &str
-    let mut res = s1.to_string();
-    res.push_str(s2);
-    res
 }
 
 // Problem 7
@@ -178,14 +168,6 @@ mod tests {
     #[test]
     fn test_str_concat() {
         assert_eq!(str_concat("1", "2"), "12");
-    }
-
-    #[test]
-    fn test_string_concat() {
-        assert_eq!(
-            string_concat(&String::from("1"), &String::from("2")),
-            String::from("12")
-        );
     }
 
     #[test]
