@@ -4,7 +4,7 @@ use std::collections::HashSet;
 
 // Uncomment these to have Rust compile the other files as well.
 mod lib2;
-// mod lib3;
+mod lib3;
 
 // Part 1. Implementing Functions. Taken from Fall 2016's Rust class.
 // Write unit tests for you functions.
